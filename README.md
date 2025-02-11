@@ -1,5 +1,7 @@
 # Monitoring Operator
 
+---
+
 The `monitoring-operator` is an operator (Kubernetes native application) which watches and manages following components:
 
 * `victoriametrics-operator`
