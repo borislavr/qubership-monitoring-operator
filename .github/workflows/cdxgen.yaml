@@ -19,6 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "cdxgen"
-        uses: netcracker/qubership-workflow-hub/actions/cdxgen@main
+        uses: netcracker/qubership-workflow-hub/actions/cdxgen@feature/cdxgen
         with:
           project_type: "go"
