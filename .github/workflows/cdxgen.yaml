@@ -1,0 +1,24 @@
+---
+
+# Please provide the project_type as a parameter to the action
+# The project_type can be one of the following:
+# - dockerfile
+# - go
+# - maven
+# - python
+
+name: 'CDXGen'
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  cdxgen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "cdxgen"
+        uses: netcracker/qubership-workflow-hub/actions/cdxgen@main
+        with:
+          project_type: "go"
