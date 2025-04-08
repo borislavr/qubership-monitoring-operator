@@ -1,0 +1,14 @@
+---
+
+charts:
+  - name: module1
+    version: ${release}-1x
+    module_string: ghcr.io/netcracker/qubership-opensearch-integration-tests:${version}
+  - name: module2
+    version: ${release}-2x
+    module_string: ghcr.io/netcracker/qubership-deployment-status-provisioner:${version}
+  - name: module3
+    version: ${release}-3x
+    module_string: ghcr.io/netcracker/qubership-opensearch-dbaas-adapter:${version}
+
+config_file: charts/values.yaml

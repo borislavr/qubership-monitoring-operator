@@ -1,0 +1,111 @@
+---
+
+charts:
+  - name: qubership-monitoring-operator
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-opensearch-integration-tests:${version}
+  - name: blackbox-exporter
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/blackbox-exporter/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/blackbox-exporter/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-blackbox-exporter:${version}
+  - name: cert-exporter
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/cert-exporter/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/cert-exporter/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-cert-exporter:${version}
+  - name: cloud-events-exporter
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/cloud-events-exporter/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/cloud-events-exporter/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-cloud-events-exporter:${version}
+  - name: cloudwatch-exporter
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/cloudwatch-exporter/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/cloudwatch-exporter/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-cloudwatch-exporter:${version}
+  - name: common-dashboards
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/common-dashboards/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/common-dashboards/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-common-dashboards:${version}
+  - name: grafana-operator
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/grafana-operator/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/grafana-operator/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-grafana-operator:${version}
+  - name: graphite-remote-adapter
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/graphite-remote-adapter/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/graphite-remote-adapter/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-graphite-remote-adapter:${version}
+  - name: json-exporter
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/json-exporter/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/json-exporter/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-json-exporter:${version}
+  - name: network-latency-exporter
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/network-latency-exporter/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/network-latency-exporter/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-network-latency-exporter:${version}
+  - name: prometheus-adapter-operator
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/prometheus-adapter-operator/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/prometheus-adapter-operator/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-prometheus-adapter-operator:${version}
+  - name: prometheus-operator
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/prometheus-operator/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/prometheus-operator/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-prometheus-operator:${version}
+  - name: promitor-agent-resource-discovery
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/promitor-agent-resource-discovery/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/promitor-agent-resource-discovery/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-promitor-agent-resource-discovery:${version}
+  - name: promitor-agent-scraper
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/promitor-agent-scraper/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/promitor-agent-scraper/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-promitor-agent-scraper:${version}
+  - name: promxy
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/promxy/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/promxy/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-promxy:${version}
+  - name: stackdriver-exporter
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/stackdriver-exporter/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/stackdriver-exporter/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-stackdriver-exporter:${version}
+  - name: version-exporter
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/version-exporter/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/version-exporter/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-version-exporter:${version}
+  - name: victoriametrics-operator
+    version: ${release}-1x
+    chart_file: charts/qubership-monitoring-operator/charts/victoriametrics-operator/Chart.yaml
+    values_file: charts/qubership-monitoring-operator/charts/victoriametrics-operator/values.yaml
+    image:
+      - ghcr.io/netcracker/qubership-victoriametrics-operator:${version}

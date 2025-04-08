@@ -1,0 +1,65 @@
+---
+
+name: Helm Charts Release
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Release version'
+        required: true
+        type: string
+permissions:
+  contents: write
+
+jobs:
+  check-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Input parameters
+        run: |
+          echo "Release version: ${{ inputs.release }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check if tag exists
+        id: check_tag
+        uses: netcracker/qubership-workflow-hub/actions/tag-checker@main
+        with:
+          tag: 'v${{ inputs.release }}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Output result
+        run: |
+          echo "Tag exists: ${{ steps.check_tag.outputs.exists }}"
+          echo "Tag name: v${{ inputs.release }}"
+
+      - name: Fail if tag exists
+        if: steps.check_tag.outputs.exists == 'true'
+        run: |
+          echo "Tag already exists: v${{ inputs.release }}" >> $GITHUB_STEP_SUMMARY
+          echo "Tag already exists: v${{ inputs.release }}"
+          exit 1
+
+  chart-release:
+    needs: check-tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Input parameters
+        run: |
+          echo "Release version: ${{ inputs.release }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: "Update versions in values"
+        uses: actions/helm-charts-release
+          with:
+            release: ${{ inputs.release }}
+            config-file: .github/helm-charts-version-update-config.yaml
+  github-release:
+    needs: chart-release
+    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@main
+    with:
+      version: ${{ inputs.release }}
+      publish: true
